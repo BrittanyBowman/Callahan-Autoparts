@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
+import Axios from 'axios'
 
+//setup state
 export class Wiz extends Component {
   constructor(){
     super()
@@ -12,11 +14,15 @@ export class Wiz extends Component {
       descrip: ''
     }
   }
-
+//methods
   handleChange(property, value) {
     this.setState({ [property]: value });
   }
-
+  complete(){
+  Axios.post('/api/part', this.state).then(res => {
+    this.props.history.push('/');
+    });
+  };
   render() {
     return (
       <div>
@@ -33,6 +39,7 @@ export class Wiz extends Component {
           <br />
         <input type="text" value={this.state.descrip} onChange={event => this.handleChange('descrip', event.target.value)} placeholder="Description" />
         </form>
+        <button>Add Part</button>
         <br />
         <button onClick={()=> this.props.history.push('/')}>Cancel</button>
       </div>

@@ -1,45 +1,4 @@
-PART 1 - writing endpoints
-## Step 3
-Now you can add the ability to see all the houses.
-
-* Setup initial state in Dashboard. You will need to store the list of houses that the server returns. 
-* Map over the list in your render method, returning the House component for each house (this won't display anything until we get the list from the backend).
-* Write a GET endpoint in your server.
-   * The endpoint should respond with a list of all the houses in the database.
-* Write a method in Dashboard that sends an `axios` request to the endpoint you just wrote. 
-   * Once the response comes back, update state with the list of houses.
-* Invoke this method as soon as the Dashboard view loads.
-* You should see the word "House" repeated as many times as you have houses in your database.
-* Update your House component to display the details of each house.
-   * Change where you're mapping over the list in Dashboard to pass the house information down to the House component.
-   * In the House component write JSX to display the house information that was passed down. 
-   * Add a 'Delete' button in the House componenet. You will make it functional later. 
-
-## Step 4
-Next you will add the ability to add a new house.
-
-* Write a POST endpoint in your server.
-   * The endpoint should pull the name, address, city, state, and zipcode off of the body.
-   * The endpoint should respond with the 'all good' status code once it has added the house to the database.
-* Write a method in Wizard that sends an `axios` request to the endpoint you just wrote.
-   * The `axios` request should take all the values from state and put them in the body of the request.
-   * Once the request comes back, navigate the user to the Dashboard View.
-      * _HINT:_ There is a method you can use to navigate. This will work better than a `Link` in this case.
-* Set up the 'Complete' button to fire the method.
-   
-## Step 5
-Then you will add the ability to delete a house.
-
-* Write DELETE endpoint in your server.
-   * The endpoint should should use a parameter to determine which house to remove from the database. 
-   * The endpoint should respond with the 'all good' status code once it has removed the house to the database.
-* Write a method in Dashboard that sends an `axios` request to the endpoint you just wrote.
-    * The method should accept a parameter to determine which house to remove from the database.
-    * Once the response comes back from the server, invoke the method you wrote to get all the houses from the database.
-* Pass the method from Dashboard to each House component through props. 
-    * The method should fire when a user clicks any of the 'Delete' buttons.
-    * Remember to pass an argument into the method to identify which house should be deleted.
-   
+PART 2 STEP 1 
 # Part 2
 
 <b>Live example [here](https://houser.devmountain.com/v2/part2/#/)</b>
