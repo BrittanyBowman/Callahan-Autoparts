@@ -9,22 +9,22 @@ module.exports = {
     },
 
     delete: (req, res) => {
-        let {id} = req.params;
+        let { id } = req.params;
 
         req.app.get('db').delete_part([id]).then(() => {
             res.status(200).send();
         }).catch(err => {
             res.status(500).send(err);
-            console.log({err});
+            console.log(err, "parts controller.delete");
         });
     },
 
     create: (req, res) => {
-        let { name, number, price, img, descrip } = req.body;
+        let { id, name, number, price, img, descrip } = req.body;
 
     req.app
-      .get("db")
-      .add_part([name, number, price, img, descrip])
+      .get('db')
+      .add_part([id, name, number, price, img, descrip])
       .then(() => {
         res.status(200).send();
       })

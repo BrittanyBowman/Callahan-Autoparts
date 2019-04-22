@@ -1,7 +1,7 @@
 CREATE TABLE parts
 (id SERIAL PRIMARY KEY,
 name TEXT, 
-number INT, 
-price INT, 
+number INTEGER, 
+price INTEGER, 
 img TEXT, 
 descrip TEXT)

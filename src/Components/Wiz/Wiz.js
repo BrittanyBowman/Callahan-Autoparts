@@ -19,7 +19,7 @@ export class Wiz extends Component {
     this.setState({ [property]: value });
   }
   complete(){
-  Axios.post('/api/part', this.state).then(res => {
+  Axios.post('/api/parts', this.state).then(res => {
     this.props.history.push('/');
     });
   };

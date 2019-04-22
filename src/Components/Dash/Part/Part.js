@@ -20,5 +20,5 @@ function Part(props) {
       </div>
     )
 }
-
+//Delete button not working
 export default Part;

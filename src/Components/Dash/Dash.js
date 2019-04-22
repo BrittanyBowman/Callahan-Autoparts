@@ -10,7 +10,7 @@ class Dash extends Component {
     this.state = {
       parts: []
     }
-    console.log(props);
+    // console.log(props);
   }
 //invoke on load
   componentDidMount() {
@@ -24,7 +24,7 @@ class Dash extends Component {
 //passed through props to Part.js
 //returns the updated array of parts by invoking the getParts method
   deletePart = (id) => {
-    Axios.delete(`/api/part/:${id}`).then(res => this.getParts());
+    Axios.delete(`/api/part/${id}`).then(res => this.getParts());
   }
 
   render() {
