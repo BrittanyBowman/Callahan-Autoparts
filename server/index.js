@@ -20,9 +20,14 @@ massive(CONNECTION_STRING, {scripts: __dirname + '/db'}).then(dbInstance => {
 }).catch(err => console.log(err));
 
 //setup endpoints
-app.get('/api/parts', partsController.getAll);
+//returns all the parts that have been added to the api
+app.get('/api/parts', partsController.getAll); 
+//deletes a part by the id parameter and returns the refreshed array
 app.delete(`/api/part/:id`, partsController.delete);
+//user creates a new part and adds it to the parts api, then returns refreshed array
 app.post('/api/parts', partsController.create);
+//user updates a part and returns the refreshed array
+
 
 //listening on assigned port
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`));

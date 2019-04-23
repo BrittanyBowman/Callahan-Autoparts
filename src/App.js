@@ -9,8 +9,9 @@ class App extends Component {
     return (
       <Router>
       <div>
+      <Header />
         <h1>APP.JS</h1>
-        <Header />
+        
         {Routes}
       </div>
       </Router>

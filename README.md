@@ -1,73 +1,7 @@
-PART 2 STEP 1 
-# Part 2
-
-<b>Live example [here](https://houser.devmountain.com/v2/part2/#/)</b>
-
-In this part we will expand our Wizard to have three steps instead of just one.
-
-Functionality of the Wizard:
-* The Wizard should have three steps.
-* A user should be able to navigate between the steps.
-   * The inputs on each step should be remembered. If the user selects a previous step they should see the previously entered values.
-   * It is acceptable to lose the values on refresh.
-* In Step One:
-   * A user should be able to add a name, address, city, state, and zipcode for a house.
-   * A user should be able to click the 'Next Step' button to navigate to Step Two.
-* In Step Two:
-   * A user should be able to add an image URL.
-   * A user should be able to click the 'Next Step' button to navigate to Step Three.
-   * A user should be able to click the 'Previous Step' button to navigate to Step One.
-* In Step Three:
-   * A user should be able to add the monthly mortgage amount. 
-      * This should populate a 'Recommended Rent' field. This amount should be 1.25 times the monthly mortgage amount.
-   * A user should be able to add the desired monthly rent.
-   * A user should be able to click the 'Complete' button.
-      * This should add a new house with all of the form values to the database.
-      * This should clear the inputs of the Wizard views.
-      * This should redirect the user to the Dashboard.
-        * _HINT:_ There is a method you can use to navigate. This will work better than a `Link` in this case.
-* A user should be able to click the 'Cancel' button on any step.
-    * This should NOT add a house to the database.
-    * This should clear the inputs of the Wizard.
-    * This should redirect the user to the Dashboard.
-      * _HINT:_ There is a method you can use to navigate. This will work better than a `Link` in this case.
-
-
-Functionality of the Dashboard View:
-* A user should be able to see all the houses that have been added to the database.
-* Each house should display its image, name, address, city, state, zipcode, montly mortgage, and desired rent information.
-* A user should be able to click the 'Add New Property' button to be taken to the Wizard view.
-* A user should be able to delete any single house.
-
-## Design
-Dashboard
-<img src="https://github.com/DevMountain/simulation-2/blob/master/assets/views/pt2_dashboard.png" />
-Wizard - Step One
-<img src="https://github.com/DevMountain/simulation-2/blob/master/assets/views/pt2_step1.png" />
-Wizard - Step Two
-<img src="https://github.com/DevMountain/simulation-2/blob/master/assets/views/pt2_step2.png" />
-Wizard - Step Three
-<img src="https://github.com/DevMountain/simulation-2/blob/master/assets/views/pt2_step3.png" />
- 
-## Step 1
-In this step you will prepare your application to work with Redux.
-
-* First, run `npm i redux`
-* Use `SQLTabs` to connect to your database. Alter the houses table, adding colums for the image, monthly mortgage amount, and desired rent
-  * _HINT:_ Save the SQL command for this to show your mentor later to earn some points.
-* Create a file called `store.js` inside of `src`.
-* Now create three components, one for each step.
-* Your Wizard component has most of the functionality of Step One in it right now. Move state, the methods needed for the inputs to update state, and the input boxes from Wizard to Step One.
-* Leave the 'Cancel' button in Wizard.
-* Build the components for steps two and three to roughly match Step One. Just change the input boxes to be different for each view.
-* Move the method that saves a house to the database and the 'Complete' button from Wizard to Step Three.
-* Now Wizard should be mostly empty. We are going to use it to organize our new routes. 
-   * Bring in `Route` from `react-router-dom`, and the three step components you just made.
-   * Set up a route for each step. The path should look like '/wizard/step#' with the number matching each step. 
-   * By setting up the routes for the steps inside Wizard instead of inside `routes.js` we keep our routing tree organized. 
-* Now set up the navigation buttons in each step to flip through the steps. 
-* Also go to the 'Add New Property' button in Dashboard and change it to navigate to '/wizard/step1' instead of '/wizard'
-
+COMPLETE button in step 3 needs to be setup
+UPDATE button needs to be created
+SEARCH button and capability needs to be created
+REDUX needs to be setup
 ## Step 2
 
 Now you will get the Redux store set up and talking to a component.

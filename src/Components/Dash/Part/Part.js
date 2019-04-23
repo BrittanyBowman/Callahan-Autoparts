@@ -1,5 +1,6 @@
 import React from 'react';
 import './Part.css'
+import Header from '../../Header/Header'
 
 //passing the Dash methods down through props
 function Part(props) {
@@ -7,18 +8,28 @@ function Part(props) {
     return (
       <div>
         <div>
+          <Header />
         <form>
-        <h4>PART.JS</h4>
+          <span>
+        <center><h4>PARTS LIST</h4>
         <h5>Part Name: {name}</h5>
         <h5>Part Number: {number}</h5>
         <h5>Part Price: {price}</h5>
         <h5>Part Image: {img}</h5>
         <h5>Part Description: {descrip}</h5>
+        
+        </center>
+        </span>
         </form>
+        
         </div>
-        <button onClick={() => props.deletePart(id)}>Delete</button>
+        <center>
+          <button onClick={() => props.deletePart(id)}>Delete</button>
+        <button>Update</button>
+        </center>
       </div>
     )
 }
-//Delete button not working
+//Need to build Update method and endpoints
+//Delete button is now working
 export default Part;
