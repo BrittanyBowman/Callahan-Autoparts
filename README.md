@@ -1,64 +1,8 @@
-COMPLETE button in step 3 needs to be setup
+COMPLETE button in wiz step3 needs to be setup
 UPDATE button needs to be created
 SEARCH button and capability needs to be created
 REDUX needs to be setup
-## Step 2
 
-Now you will get the Redux store set up and talking to a component.
-
-* Open `store.js` and bring in `createStore` from `redux`. 
-* Create an object called `initialState`. This object should store all the values entered in the wizard.
-* Create a function named `reducer`. This function should take in two parameters: `state` (with the default value of `initialState`), and `action`.
-* Set up a `switch` statement inside the `reducer` based on the action type. For now just setup a default case that returns state.
-* Create and export a store using `createStore` and `reducer`.
-* Go back to Step One and import `store` from `src/ducks/store.js`.
-   * Create a variable called `reduxState` in the `constructor`. Set it's value to `.getState` invoked.
-   * Use values from `reduxState` to set initial state for the component.
-* Subscribe to the `store` inside of `componentDidMount`.
-  * Use the `.subscribe` method.
-  * Update local state using values from Redux state.
-
-## Step 3
-
-Then you will setup your Step One component to update Redux state.
-
-* Open `store.js` and create and export an action type constant for Step One.
-* In your `reducer` function, add a `case` to the `switch` statement. 
-  * The `case` should match the action type you just wrote.
-  * This `case` should return an object that includes all the values stored on `state`. The values for img, monthly mortgage, and desired rent should remain what they were, and the values for name, address, city, state, and zipcode should be updated based on the values of the action payload.
-* In Step One, import the action type you created.
-* Now setup the 'Next Step' button to update the `store` using the action type.
-  * Use the `.dispatch` method. Pass in an object with a `type` and a `payload`.
-  * The button should still navigate to the next step.
-
-## Step 4
-
-Now that you have Step One connected to Redux, you will replicate the process for steps two and three.
-
-For both components:
-* Import `store` from `store.js`.
-* Create a variable called `reduxState` in the `constructor`. Set it's value to `.getState` invoked.
-* Use values from `reduxState` to set initial state for the component.
-* Subscribe to the `store` inside of `componentDidMount`.
-  * Use the `.subscribe` method.
-  * Update local state using values from Redux state.
-
-## Step 5 
-
-Then replicate the process of saving the values to Redux state for steps two and three.
-
-For both components:
-* Open `store.js` and create and export an action type constant.
-* In your `reducer` function, add a `case` to the `switch` statement for each action type. 
-  * The cases should return an object that includes all the values stored on state. The values added in other steps should remain what they were, and the values for the current step should be updated based on the values of the action payload.
-* Import the coorisponding action type into the component.
-* Now setup the buttons to update the `store` using the action type.
-  * Use the `.dispatch` method. Pass in an object with a `type` and a `payload`.
-  * The image URL should be saved to Redux when the 'Previous Step' or the 'Next Step' buttons are clicked in Step Two.
-  * The monthly mortgage amount and the desired rent should be saved to Redux when the 'Previous Step' button is click in Step Three.
-  * The buttons should still navigate correctly.
-   
- 
 ## Step 6
 
 Now you will set up you cancel button to forget all values from the Wizard.

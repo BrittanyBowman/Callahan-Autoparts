@@ -1,5 +1,8 @@
 import React, { Component } from "react";
+import { connect } from 'react-redux';
+import { updateNameNum } from '../../reducer';
 import "./Wiz.css";
+
 
 //setup state. Move over from Wiz for Redux.
 class Step1 extends Component {
@@ -14,10 +17,7 @@ class Step1 extends Component {
       descrip: ""
     };
   }
-  componentDidMount() {
-    let { name, number, price, img, descrip } = this.props;
-    this.setState({ name, number, price, img, descrip });
-  }
+
   handleChange = (property, value) => {
     this.setState({ [property]: value });
   };
@@ -31,8 +31,7 @@ class Step1 extends Component {
             <center>
               <h3>Part Details:</h3>
               <br />
-              <input
-                type="text"
+              <input                
                 value={this.state.name}
                 onChange={event =>
                   this.handleChange("name", event.target.value)
@@ -41,7 +40,6 @@ class Step1 extends Component {
               />
               <br />
               <input
-                type="text"
                 value={this.state.number}
                 onChange={event =>
                   this.handleChange("number", event.target.value)
@@ -50,7 +48,6 @@ class Step1 extends Component {
               />
               <br />
               <input
-                type="text"
                 value={this.state.price}
                 onChange={event =>
                   this.handleChange("price", event.target.value)
@@ -61,7 +58,9 @@ class Step1 extends Component {
           </span>
         </form>
         <center>
-          <button onClick={() => this.props.history.push("/wiz/2")}>
+          <button onClick={() => {
+            this.props.updateNameNum(this.state);
+            this.props.history.push("/wiz/2")}}>
             Next
           </button>
         </center>
@@ -70,5 +69,9 @@ class Step1 extends Component {
     );
   }
 }
+function mapStateToProps(reduxState) {
+  let { name, number, price, img, descrip } = reduxState;
+  return { name, number, price, img, descrip };
+}
 
-export default Step1;
+export default connect(mapStateToProps, { updateNameNum })(Step1);

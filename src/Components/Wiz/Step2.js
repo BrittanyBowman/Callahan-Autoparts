@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import "./Wiz.css";
+import { connect } from 'react-redux';
+import { updateImg } from '../../reducer';
 
 export class Step2 extends Component {
   constructor(props) {
@@ -12,39 +14,47 @@ export class Step2 extends Component {
   componentDidMount() {
     this.setState({ img: this.props.img });
   }
-  handleChange = value => {
+
+  handleChange = (value) => {
     this.setState({ img: value });
   };
   render() {
     return (
       <div>
-        <h4>WIZ.STEP2</h4>
+        <center><h4>Add Image</h4></center>
         <form>
           <span>
             <center>
               <input
-                type="text"
+                style={{ width: "35vw" }}
                 value={this.state.img}
-                onChange={event => this.handleChange("img", event.target.value)}
-                placeholder="Image URL"
+                onChange={event => this.handleChange(event.target.value)}
               />
             </center>
           </span>
         </form>
         <form>
           <center>
-          <button onClick={() => this.props.history.push("/wiz/1")}>
+          <button onClick={() => {
+            this.props.updateImg(this.state.img);
+            this.props.history.push("/wiz/1")}}>
               Previous
             </button>
-            <button onClick={() => this.props.history.push("/wiz/3")}>
+            <button onClick={() => {
+              this.props.updateImg(this.state.img);
+              this.props.history.push("/wiz/3")}}>
               Next
             </button>
-            
           </center>
         </form>
       </div>
     );
   }
 }
+function mapStateToProps(state){
+  return {
+    img: state.img
+  }
+}
 
-export default Step2;
+export default connect(mapStateToProps, { updateImg })(Step2);

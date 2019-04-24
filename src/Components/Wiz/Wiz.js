@@ -1,5 +1,8 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
+import { connect } from 'react-redux'
+import  { clear } from '../../reducer'
+import '../../reducer'
 import './Wiz.css'
 import Step1 from './Step1'
 import Step2 from './Step2'
@@ -10,7 +13,9 @@ function Wiz(props) {
     <div>
       <div>
         <br />
-      <center><button onClick={()=> props.history.push('/')}>Cancel</button></center>
+      <center><button onClick={()=> {
+        props.clear();
+        props.history.push('/')}}>Cancel</button></center>
     </div>   
       <Route path='/wiz/1' component={Step1} />
       <Route path='/wiz/2' component={Step2} />
@@ -19,4 +24,4 @@ function Wiz(props) {
   )
 }
 
-export default Wiz;
+export default connect(null, { clear })(Wiz);

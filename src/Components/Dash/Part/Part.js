@@ -9,9 +9,11 @@ function Part(props) {
       <div>
         <div>
           <Header />
+          
         <form>
           <span>
-        <center><h4>PARTS LIST</h4>
+          <div className='house_img' style={{ backgroundImage: `url('${img}')` }}></div>
+        <center>
         <h5>Part Name: {name}</h5>
         <h5>Part Number: {number}</h5>
         <h5>Part Price: {price}</h5>

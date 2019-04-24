@@ -1,54 +1,73 @@
 import React, { Component } from "react";
 import Axios from "axios";
+import { connect } from 'react-redux';
+import {updateDescrip, clear} from '../../reducer';
 
 class Step3 extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      descrip: ""
+      descrip: ''
     };
+    this.handleChange = this.handleChange.bind(this);
+    this.complete = this.complete.bind(this);
   }
   componentDidMount() {
-    this.setState({ descrip: this.props.descrip });
+    let { descrip } = this.props;
+    this.setState({ descrip });
   }
-  handleChange = value => {
-    this.setState({ descrip: value });
-  };
+  handleChange(prop, value) {
+    switch (prop) {
+      case 'descrip':
+        this.setState({
+          descrip: value
+        })
+        break;
+        default:
+        break;
+  }}
+
   complete() {
-    Axios.post("/api/parts", this.state).then(res => {
+    let { name, number, price, img } = this.props;
+    let part = { name, number, price, img }
+    Axios.post('/api/parts', part).then(res => {
+      this.props.clear();
       this.props.history.push("/");
     });
   }
   render() {
     return (
       <div>
-        <h4>WIZ.STEP3</h4>
+        <center><h4>Add Description</h4></center>
         <form>
           <span>
             <center>
               <input
-                type="text"
+                style={{ width: "35vw", height: "20vh"}}
                 value={this.state.descrip}
                 onChange={event =>
                   this.handleChange("descrip", event.target.value)
                 }
-                placeholder="Description"
+                placeholder="Description..."
               />
             </center>
           </span>
         </form>
         <form>
           <center>
-            <button onClick={() => this.props.history.push("/wiz/1")}>
+            <button onClick={() => this.props.history.push("/wiz/2")}>
               Previous
             </button>
-            <button>Complete</button>
+            <button onClick={this.complete}>Complete</button>
           </center>
         </form>
       </div>
     );
   }
 }
+function mapStateToProps(state){
+  return state;
+}
 
-export default Step3;
+export default connect(mapStateToProps, {updateDescrip, clear})(Step3);

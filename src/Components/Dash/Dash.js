@@ -25,15 +25,15 @@ class Dash extends Component {
 //passed through props to Part.js
 //returns the updated array of parts by invoking the getParts method
   deletePart = (id) => {
-    Axios.delete(`/api/part/${id}`).then(res => this.getParts());
+    Axios.delete(`/api/parts/${id}`).then(res => this.getParts());
   }
 
   render() {
     return (
       <div><br />
-          <h3><center>DASH</center></h3>
+          <h3><center>Parts List</center></h3>
           <Header />
-          <center><button onClick={()=> this.props.history.push('/Wiz/1')}>Add Parts</button></center>
+          <center><button onClick={()=> this.props.history.push('/wiz/1')}>Add Parts</button></center>
           {this.state.parts.map(element => {
             return <Part part={element} deletePart={this.deletePart} key={element.id} />
           })}
