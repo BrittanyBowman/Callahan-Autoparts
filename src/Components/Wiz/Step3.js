@@ -10,6 +10,7 @@ class Step3 extends Component {
     this.state = {
       descrip: ''
     };
+    
     this.handleChange = this.handleChange.bind(this);
     this.complete = this.complete.bind(this);
   }
