@@ -1,4 +1,5 @@
 module.exports = {
+    //reads db list of parts
     getAll: (req, res) => {
         req.app.get('db').get_parts().then(parts => {
             res.status(200).send(parts);
@@ -7,7 +8,7 @@ module.exports = {
             console.log({err});
         });
     },
-
+    //deletes part from db list
     delete: (req, res) => {
         let { id } = req.params;
 
@@ -18,13 +19,13 @@ module.exports = {
             console.log(err);
         });
     },
-
+    //creates new part in db list
     create: (req, res) => {
-        let { id, name, number, price, img, descrip } = req.body;
+        let { name, number, price, img, descrip } = req.body;
 
     req.app
       .get('db')
-      .add_part([id, name, number, price, img, descrip])
+      .add_part([name, number, price, img, descrip])
       .then(() => {
         res.status(200).send();
       })
@@ -33,4 +34,20 @@ module.exports = {
         res.status(500).send(error);
       });
     },
+    //Update parts list
+  update: (req, res) => {
+    let { name, number, price, img, descrip } = req.body;
+    const { id } = req.params;
+
+    req.app
+      .get('db')
+      .update_part([id, name, number, price, img, descrip])
+      .then(part => {
+        res.status(200).send(part);
+      })
+      .catch(err => {
+        console.log({ err });
+        res.status(500).send(err);
+      });
+  },
 }

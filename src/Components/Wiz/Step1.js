@@ -26,7 +26,7 @@ class Step1 extends Component {
     return (
       <div>
         <center><h1>Add Parts</h1></center>
-        <form>
+        
           <span>
             <center>
               <h3>Part Details:</h3>
@@ -56,7 +56,7 @@ class Step1 extends Component {
               />
             </center>
           </span>
-        </form>
+        
         <center>
           <button onClick={() => {
             this.props.updateNameNum(this.state);

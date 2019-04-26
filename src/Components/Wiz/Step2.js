@@ -22,18 +22,18 @@ export class Step2 extends Component {
     return (
       <div>
         <center><h4>Add Image</h4></center>
-        <form>
+      
           <span>
             <center>
               <input
-                style={{ width: "35vw" }}
+                style={{ width: "25vw" }}
                 value={this.state.img}
                 onChange={event => this.handleChange(event.target.value)}
               />
             </center>
           </span>
-        </form>
-        <form>
+        
+        
           <center>
           <button onClick={() => {
             this.props.updateImg(this.state.img);
@@ -46,7 +46,7 @@ export class Step2 extends Component {
               Next
             </button>
           </center>
-        </form>
+        
       </div>
     );
   }

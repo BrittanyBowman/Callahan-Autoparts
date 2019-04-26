@@ -10,7 +10,7 @@ class Header extends Component {
         <h3>Callahan AutoParts</h3>
         
         <div className='header_link_box'>
-        <Link to='/'>Dasboard</Link>
+        <Link to='/dashboard'>Dasboard</Link>
         <Link to='/wiz/1'>Add Parts</Link>
         <Link to='/search'>Search</Link>
         <Link to='/'>Logout</Link>

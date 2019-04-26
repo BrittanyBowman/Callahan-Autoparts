@@ -11,7 +11,7 @@ class Dash extends Component {
     this.state = {
       parts: []
     }
-    // console.log(props);
+    // console.log(props); parts list.
   }
 //invoke on load
   componentDidMount() {
@@ -26,6 +26,10 @@ class Dash extends Component {
 //returns the updated array of parts by invoking the getParts method
   deletePart = (id) => {
     Axios.delete(`/api/parts/${id}`).then(res => this.getParts());
+  }
+  //updates an autopart by id that has already been added to the db - need to map this and change the original?
+  updatePart = (id) => {
+    Axios.put(`/api/parts/${id}`).then(res => this.setState())
   }
 
   render() {

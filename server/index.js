@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 
 //db modules
 const partsController = require('./controllers/parts_controller');
+const usersController = require('./controllers/user_controller');
 
 //destructering from process.env
 const { PORT, CONNECTION_STRING } = process.env;
@@ -26,7 +27,12 @@ app.get('/api/parts', partsController.getAll);
 app.delete(`/api/parts/:id`, partsController.delete);
 //user creates a new part and adds it to the parts api, then returns refreshed array
 app.post('/api/parts', partsController.create);
-//user updates a part and returns the refreshed array
+//user updates a part and returns the refreshed array *not working, not setup*
+app.post(`/api/parts/:id`, partsController.update);
+//user can login
+app.post(`api/login`, usersController.login);
+//uder can register
+app.post(`/api/register`, usersController.register);
 
 
 //listening on assigned port

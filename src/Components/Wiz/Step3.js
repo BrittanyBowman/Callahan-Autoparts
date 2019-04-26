@@ -10,59 +10,49 @@ class Step3 extends Component {
     this.state = {
       descrip: ''
     };
-    
+
     this.handleChange = this.handleChange.bind(this);
     this.complete = this.complete.bind(this);
   }
+
   componentDidMount() {
     let { descrip } = this.props;
     this.setState({ descrip });
   }
-  handleChange(prop, value) {
-    switch (prop) {
-      case 'descrip':
-        this.setState({
-          descrip: value
-        })
-        break;
-        default:
-        break;
-  }}
+
+  handleChange(value) {
+    this.setState({ descrip: value })
+  }
 
   complete() {
-    let { name, number, price, img } = this.props;
-    let part = { name, number, price, img }
+    let { name, number, price, img } = this.props; //destructuring off props
+    let { descrip } = this.state; //destructuring off state
+    let part = { name, number, price, img, descrip }
     Axios.post('/api/parts', part).then(res => {
       this.props.clear();
-      this.props.history.push("/");
+      this.props.history.push('/');
     });
   }
   render() {
     return (
       <div>
         <center><h4>Add Description</h4></center>
-        <form>
           <span>
             <center>
               <input
-                style={{ width: "35vw", height: "20vh"}}
+                style={{ width: "33vw", height: "23vh"}}
                 value={this.state.descrip}
                 onChange={event =>
-                  this.handleChange("descrip", event.target.value)
-                }
-                placeholder="Description..."
-              />
+                  this.handleChange(event.target.value)
+                }/>
             </center>
           </span>
-        </form>
-        <form>
           <center>
-            <button onClick={() => this.props.history.push("/wiz/2")}>
-              Previous
-            </button>
+            <button onClick={() => {
+              this.props.updateDescrip(this.state)
+              this.props.history.push('/wiz/2')}}>Previous</button>
             <button onClick={this.complete}>Complete</button>
           </center>
-        </form>
       </div>
     );
   }
@@ -71,4 +61,4 @@ function mapStateToProps(state){
   return state;
 }
 
-export default connect(mapStateToProps, {updateDescrip, clear})(Step3);
+export default connect(mapStateToProps, { updateDescrip, clear })(Step3);

@@ -10,9 +10,9 @@ function Part(props) {
         <div>
           <Header />
           
-        <form>
+        <div className="Box">
           <span>
-          <div className='house_img' style={{ backgroundImage: `url('${img}')` }}></div>
+          {/* <div className='house_img' style={{ backgroundImage: `url('${img}')` }}></div> */}
         <center>
         <h5>Part Name: {name}</h5>
         <h5>Part Number: {number}</h5>
@@ -22,12 +22,12 @@ function Part(props) {
         
         </center>
         </span>
-        </form>
+        </div>
         
         </div>
         <center>
           <button onClick={() => props.deletePart(id)}>Delete</button>
-        <button>Update</button>
+        <button onClick={()=> props.updatePart(id)}>Update</button>
         </center>
       </div>
     )
