@@ -30,7 +30,7 @@ class Step3 extends Component {
     let part = { name, number, price, img, descrip }
     Axios.post('/api/parts', part).then(res => {
       this.props.clear();
-      this.props.history.push('/');
+      this.props.history.push('/dashboard');
     });
   }
   render() {

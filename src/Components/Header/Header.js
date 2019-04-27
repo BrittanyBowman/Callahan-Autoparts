@@ -11,9 +11,10 @@ class Header extends Component {
         
         <div className='header_link_box'>
         <Link to='/dashboard'>Dasboard</Link>
-        <Link to='/wiz/1'>Add Parts</Link>
+        <Link to='/wiz/1'>Add</Link>
         <Link to='/search'>Search</Link>
         <Link to='/'>Logout</Link>
+        <Link to='/me'>Home</Link>
       </div>
       </div>
     )

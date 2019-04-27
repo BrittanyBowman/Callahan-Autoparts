@@ -5,7 +5,8 @@ const initialState = {
     img: '',
     descrip: '',
     username: '',
-    userid: 0
+    userid: 0,
+    users: {}
 
   }
 
@@ -16,6 +17,7 @@ const DESCRIP_INFO = 'DESCRIP_INFO';
 const CLEAR_INFO = 'CLEAR_INFO';
 const UPDATE_USER = 'UPDATE_USER';
 const LOGOUT = 'LOGOUT';
+const LOGIN = 'LOGIN';
 
 //Switch statements: The switch expression is evaluated once.
 // The value of the expression is compared with the values of each case.
@@ -36,8 +38,11 @@ export default function reducer(state = initialState, action) {
       return { ...state, username: payload.username, userId: payload.id };
     case LOGOUT:
       return initialState;
+      case LOGIN:
+        return Object.assign({}, state, {user: action.payload})
     default:
       return state;
+      
   }
 }
 
@@ -80,6 +85,13 @@ export function updateUser(user) {
 export function logout() {
   return {
     type: LOGOUT
+  }
+}
+
+export function login(userInfo){
+  return {
+  type: LOGIN,
+  payload: userInfo
   }
 }
 //In your reducer function, add a case to the switch statement. The case should make the action type you just wrote.

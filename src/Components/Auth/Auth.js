@@ -14,20 +14,34 @@ class Auth extends Component {
         }
     }
 
-    handleChange(prop, val){
+    handleChange = (key, event) => {
         this.setState({
-            [prop]: val
+          [key]: event.target.value
         })
-    }
-
-    login(){
-        Axios.post('/api/login', this.state).then(res => {
-            this.props.updateUser(res.data);
-            this.props.history.push('/dashboard');
+      };
+    
+      handleLogin = () => {
+        const {username, password} = this.state;
+    
+        const userInfo = {
+          username,
+          password
+        }
+    
+        Axios.post('/login', userInfo).then(res => {
+            const users = res.data;
+            this.props.login(users);
+            this.props.history.push('/me');
         })
     }
     register(){
-        Axios.post('api/register', this.state).then(res => {
+        Axios.post('/register', ).then(res => {
+            this.props.updateUser(res.data);
+            this.props.history.push('/me');
+        })
+    }
+    update(){
+        Axios.put('/register', this.state).then(res => {
             this.props.updateUser(res.data);
             this.props.history.push('/dashboard');
         })
@@ -35,20 +49,22 @@ class Auth extends Component {
   render() {
     return (
       <div><br /><br />
-        <h1><center>AUTH</center></h1>
+        <h1><center>LOGIN</center></h1>
         <div><center>
         <h3>Username:</h3>
-        <input value={this.state.username} onChange={event => this.handleChange('username', event.target.value)} />
+        <input type="text" placeholder="username.." onChange={(event) => this.handleChange('username', event)}/>
         <h3>Password:</h3>
-        <input value={this.state.password} onChange={event => this.handleChange('password', event.target.value)} />
+        <input type="text" placeholder="password.." onChange={(event) => this.handleChange('password', event)}/>
         <br /><br />
-        <p><button onClick={this.login}>Login</button>
-        <button onClick={this.register}>Register</button></p>
+        <p><button onClick={this.handleLogin}>Login</button>
+        <button onClick={this.handleLogin}>Register</button></p>
         </center>
         </div>
       </div>
     )
   }
 }
+
+
 
 export default connect(null, { updateUser })(Auth);
