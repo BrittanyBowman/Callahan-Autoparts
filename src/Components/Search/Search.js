@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Axios from 'axios';
 // import axios from 'axios';
 
 class Search extends Component {
@@ -16,6 +17,9 @@ class Search extends Component {
   // searchParts(){
   //   axios.get(`https://api.github.com/users/${text}`).then(res => {this.results = res.data.results})
   // }
+  searchParts = () => {
+    Axios.get('/api/parts').then(res => this.setState({results: res.data}))
+  }
   render() {
     let results = this.state.results;
 

@@ -1,3 +1,3 @@
-SELECT orders.order_id FROM orders INNER JOIN users ON users.id=orders.id RETURN orders;
+SELECT orders.id FROM orders JOIN users ON users.id=orders.user_id
 
---Inner join
+-- join

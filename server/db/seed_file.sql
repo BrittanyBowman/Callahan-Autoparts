@@ -1,7 +1,7 @@
 CREATE TABLE parts
 (id SERIAL PRIMARY KEY,
 name TEXT, 
-number INT 
+number INT,
 price INT, 
 img TEXT, 
 descrip TEXT)
@@ -14,8 +14,6 @@ password TEXT)
 -- must use foreign key and a join
 
 CREATE TABLE orders (
-    order_id INT,
-    user_id TEXT
-    PRIMARY KEY (order_id),
-    FOREIGN KEY (user_id) REFERENCES id(users)
+    id serial PRIMARY KEY,
+    user_id int REFERENCES users(id)
 )
