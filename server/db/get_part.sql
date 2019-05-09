@@ -1,1 +1,1 @@
-SELECT * FROM parts WHERE id = $1;
+SELECT * FROM parts WHERE name = $1;

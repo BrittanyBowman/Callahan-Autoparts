@@ -22,14 +22,14 @@ class Auth extends Component {
       login = () => {
         Axios.post('/login', this.state)
           .then(res => {
-            this.props.updateUser(res.data);
+            this.props.updateUser(res.data.user);
             this.props.history.push('/dashboard');
           })
       }
       register = () => {
         Axios.post('/register', this.state)
           .then(res => {
-            this.props.updateUser(res.data);
+            this.props.updateUser(res.data.user);
             this.props.history.push('/dashboard');
           })
       }
@@ -41,7 +41,7 @@ class Auth extends Component {
         <h3>Username:</h3>
         <input value={this.state.username} placeholder="username.." onChange={event => this.handleChange('username', event.target.value)}/>
         <h3>Password:</h3>
-        <input value={this.state.password} placeholder="password.." onChange={event => this.handleChange('password', event.target.value)}/>
+        <input type="password" value={this.state.password} placeholder="password.." onChange={event => this.handleChange('password', event.target.value)}/>
         <br /><br />
         <p><button onClick={this.login}>Login</button>
         <button onClick={this.register}>Register</button></p>

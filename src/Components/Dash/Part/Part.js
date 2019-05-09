@@ -9,21 +9,17 @@ function Part(props) {
       <div>
         <div>
           <Header />
-          
-        <div className="Box">
+        <div>
           <span>
-          {/* <div className='house_img' style={{ backgroundImage: `url('${img}')` }}></div> */}
-        <center>
-        <h5>Part Name: {name}</h5>
-        <h5>Part Number: {number}</h5>
-        <h5>Part Price: {price}</h5>
-        <h5>Part Image: {img}</h5>
-        <h5>Part Description: {descrip}</h5>
-        
+          <center>
+          <div>
+            <img src={img} alt={name} height="180px" width="200px" />
+            </div>
+        <h6><p>Item: {name}<p> Item No. {number} </p><p>Price: ${price}.00</p>
+        Description: {descrip}</p></h6>
         </center>
         </span>
         </div>
-        
         </div>
         <center>
           <button onClick={() => props.deletePart(id)}>Delete</button>
@@ -32,6 +28,6 @@ function Part(props) {
       </div>
     )
 }
-//Need to build Update method and endpoints
+//Need to build Update method
 //Delete button is now working
 export default Part;

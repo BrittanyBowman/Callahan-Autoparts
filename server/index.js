@@ -19,10 +19,6 @@ const { PORT, CONNECTION_STRING } = process.env;
 massive(CONNECTION_STRING, {scripts: __dirname + '/db'}).then(dbInstance => {
     app.set('db', dbInstance);
     console.log('db connected');
-    return dbInstance.create_test_user();
-}).then((dbInstance) => {
-    app.set('db', dbInstance);
-    return dbInstance.login;
 }).catch(err => console.log(err));
 
 //setup express server
@@ -39,17 +35,15 @@ app.use( session({
 app.use(passport.initialize());
 //always used with session
 app.use(passport.session());
+
 //configure passport, take in middleware name and new "Strategy"
 passport.use('login', new LocalStrategy({
     usernameField: 'username',
 }, (username, password, done) => {
-    if (!username || !password) {
-        return done ({message: 'email and password are required'});
-    };
     const db = app.get('db');
     db.users.find({username}).then(userResults => {
         if(userResults.length == 0) {
-            return done(JSON.stringify({message: ''}))
+            return done(JSON.stringify({message: 'username or password is invalid'}))
         };
 
         //if find user, store user in variable
@@ -74,12 +68,12 @@ passport.use('register', new LocalStrategy({
 },
 (username, password, done) => {
     const db = app.get('db');
-    const hashedPassword = bcrypt.hashSync(password, 15);
-
+    
     db.users.find({username}).then(userResults => {
-        if (userResults > 0) {
+        if (userResults.length > 0) {
             return done (JSON.stringify({message: 'username is already in use'}))
         };
+        const hashedPassword = bcrypt.hashSync(password, 15);
         return db.users.insert({
             username,
             password: hashedPassword,
@@ -111,11 +105,11 @@ app.post(`/api/parts/:id`, partsController.update);
 
 //login endpoint, calls authenticate on passport. 
 app.post('/login', passport.authenticate('login'), (req, res) => {
-    return res.send({message: 'Authenticated!'});
+    return res.send({message: 'Authenticated!', user: req.user});
 });
 //register endpoint, 
 app.post('/register', passport.authenticate('register'), (req, res) => {
-    return res.send({message: 'Logged In!'})
+    return res.send({message: 'Logged In!', user: req.user})
 });
 
 

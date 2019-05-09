@@ -1,15 +1,12 @@
-import React, { Component } from 'react'
+import React from 'react'
+import './Me.css'
 
-class Me extends Component {
-  render() {
+export default function me(props) {
+  console.log(props)
     return (
-      <div><br /><br /><div>
-        <span><p><center><h3>Username Display: Info</h3>
-        <p>Show list from orders join statement</p></center></p></span>
+      <div><br /><br /><br /><div className="displaybox">
+        <span><center><h3>Username Display: Info<br />Show Join List Here</h3></center></span>
         </div>
       </div>
     )
   }
-}
-
-export default Me;

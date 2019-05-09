@@ -1,24 +1,30 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router-dom';
-import './Header.css'
+import React from "react";
+import { withRouter, Link } from "react-router-dom";
+import { connect } from 'react-redux';
+import { logout } from '../../reducer'
+import "./Header.css";
 
-class Header extends Component {
-  render() {
-    return (
+function Header(props) {
+  console.log(props);
+  if (props.location.pathname !== "/") {
+    return <div>
       <div className="Header">
-        
-        <h3>Callahan AutoParts</h3>
-        
-        <div className='header_link_box'>
-        <Link to='/dashboard'>Dasboard</Link>
-        <Link to='/wiz/1'>Add</Link>
-        <Link to='/search'>Search</Link>
-        <Link to='/'>Logout</Link>
-        <Link to='/me'>Home</Link>
-      </div>
-      </div>
-    )
+        <h3>Callahan AutoParts: User {props.username}</h3>
+        <div className="header_link_box">
+          <Link to="/dashboard">Dasboard</Link>
+          <Link to="/wiz/1">Add</Link>
+          <Link to="/search">Search</Link>
+          <Link to="/">Logout</Link>
+          <Link to="/me">Home</Link>
+        </div>
+    </div>
+    </div>
+  } else {
+    return null;
   }
 }
 
-export default Header;
+function mapStateToProps(state){
+  return {username: state.username};
+}
+export default withRouter(connect(mapStateToProps, { logout })(Header));

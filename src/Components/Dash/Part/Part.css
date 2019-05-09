@@ -1,6 +1,6 @@
 span {
   width: 50vw;
-  height: 30vh;
+  height: 50vh;
   padding: 15px;
   margin: 10px auto;
   border-radius: 7px;
@@ -11,21 +11,13 @@ span {
   flex-direction: column;
 }
 
-.house_img {
-  height: 100%;
-  width: 100%;
-  background-size: cover;
-  background-position: center;
-  margin: 0;
-}
-
 body {
   background-color: rgb(180, 253, 180);
 }
 
 button {
-  width: 20%;
-  background-color: #7c7a7a;
+  width: 15%;
+  background-color: #38d32a;
   border: none;
   color: white;
   padding: 15px 32px;

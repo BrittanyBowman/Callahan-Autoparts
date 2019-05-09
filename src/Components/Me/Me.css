@@ -1,7 +1,7 @@
 span {
-    width: 300px;
+    width: 400px;
     height: 300px;
-    padding: 15px;
+    padding: 30px;
     margin: 10px auto;
     border-radius: 7px;
     background-color: #5adf55; 
@@ -10,3 +10,7 @@ span {
     -ms-flex-direction: column;
         flex-direction: column;
   } 
+
+  .displaybox {
+    padding: 35px;
+  }
