@@ -100,8 +100,8 @@ app.get('/api/parts', partsController.getAll);
 app.delete(`/api/parts/:id`, partsController.delete);
 //user creates a new part and adds it to the parts api, then returns refreshed array
 app.post('/api/parts', partsController.create);
-//user updates a part and returns the refreshed array *not working, not setup*
-app.post(`/api/parts/:id`, partsController.update);
+//get / search parts by name
+app.get(`/api/parts/:name`, partsController.search);
 
 //login endpoint, calls authenticate on passport. 
 app.post('/login', passport.authenticate('login'), (req, res) => {

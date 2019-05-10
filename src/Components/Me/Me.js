@@ -1,12 +1,19 @@
 import React from 'react'
 import './Me.css'
+import { withRouter, Link } from "react-router-dom";
+import { connect } from 'react-redux'
+import { logout } from '../../reducer'
 
-export default function me(props) {
-  console.log(props)
+function Me(props) {
     return (
       <div><br /><br /><br /><div className="displaybox">
-        <span><center><h3>Username Display: Info<br />Show Join List Here</h3></center></span>
+        <span><center><h3>Welcome {props.username}<br />Show Join List Here</h3></center></span>
         </div>
       </div>
     )
   }
+
+  function mapStateToProps(state){
+    return {username: state.username};
+  }
+  export default withRouter(connect(mapStateToProps, { logout })(Me));

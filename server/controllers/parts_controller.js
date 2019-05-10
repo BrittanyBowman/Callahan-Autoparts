@@ -32,14 +32,13 @@ module.exports = {
         res.status(500).send(error);
       });
     },
-    //Update parts list(not setup)
-  update: (req, res) => {
-    let { name, number, price, img, descrip } = req.body;
-    const { id } = req.params;
-
+    //search
+  search: (req, res) => {
+    let { name } = req.params;
+    console.log("search", req.params)
     req.app
       .get('db')
-      .update_part([id, name, number, price, img, descrip])
+      .get_part([`%${name}%`])
       .then(part => {
         res.status(200).send(part);
       })

@@ -1,1 +1,2 @@
-SELECT * FROM parts WHERE name = $1;
+SELECT * FROM parts
+WHERE name ILIKE $1

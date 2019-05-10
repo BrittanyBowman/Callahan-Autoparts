@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
+import './Search.css'
 
 
 class Search extends Component {
@@ -7,31 +8,37 @@ class Search extends Component {
     super()
 
     this.state = {
-      results: []
+      results: [],
+      part: ""
     }
   }
   handleChange = (property, value) => {
     this.setState({ [property]: value });
   };
   searchParts = () => {
-    Axios.get('/api/parts').then(res => this.setState({results: res.data}))
+    Axios.get(`/api/parts/${this.state.part}`).then(res => this.setState({results: res.data}))
   }
   render() {
-    let results = this.state.results;
+    let {part, results} = this.state;
 
     return (
       <div>
-        <h3><br /></h3>
+        <div className="search">
         <center><h3>Search Catalog</h3></center>
         <span>
-          <input value={this.state.results}
-          onChange={event => this.handleChange("results", event.target.value)} />
+          <input value={part} placeholder="Search by item name..."
+          onChange={event => this.handleChange("part", event.target.value)} />
+        <div><center>{results.map((part) => (
+          <h5>ITEM: {part.name}<br />
+          ITEM No. {part.number}<br />
+          PRICE: ${part.price}.00<br />
+          </h5>
+        ))}</center></div>
         </span>
+        </div>
         <center>
         <button onClick={()=> this.searchParts()}>SEARCH</button>
         </center>
-        <div><center>{results}</center></div>
-        
       </div>
     )
   }
