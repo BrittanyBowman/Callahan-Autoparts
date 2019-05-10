@@ -13,7 +13,7 @@ function Header(props) {
           <Link to="/dashboard">Dasboard</Link>
           <Link to="/wiz/1">Add</Link>
           <Link to="/search">Search</Link>
-          <Link to="/">Logout</Link>
+          <Link to="/" onClick={() => {props.logout(); props.history.push('/')}}>Logout</Link>
           <Link to="/me">Home</Link>
         </div>
     </div>
@@ -26,4 +26,5 @@ function Header(props) {
 function mapStateToProps(state){
   return {username: state.username};
 }
+
 export default withRouter(connect(mapStateToProps, { logout })(Header));

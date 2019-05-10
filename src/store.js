@@ -11,3 +11,4 @@ export default createStore(
 //In redux, components need to connect to a store.
 //createStore will allow us to export the creation of our store.
 //In order to create our store, we'll also need our reducer.
+//REDUX DEVTOOLS can be used in CHROME

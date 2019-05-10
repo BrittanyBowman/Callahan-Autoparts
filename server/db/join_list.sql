@@ -1,3 +1,3 @@
-SELECT orders.id FROM orders JOIN users ON users.id=orders.user_id
+SELECT parts.id FROM parts JOIN users ON users.id=parts.part_id
 
 -- join

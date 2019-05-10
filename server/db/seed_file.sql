@@ -15,6 +15,6 @@ password TEXT)
 
 CREATE TABLE orders (
     id serial PRIMARY KEY,
-    user_id int REFERENCES users(id),
-    part_id int REFERENCES parts(id)
+    user_id INT REFERENCES users(id),
+    part_id INT REFERENCES parts(id)
 )

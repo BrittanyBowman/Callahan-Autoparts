@@ -27,10 +27,6 @@ class Dash extends Component {
   deletePart = (id) => {
     Axios.delete(`/api/parts/${id}`).then(res => this.getParts());
   }
-  //updates an autopart by id that has already been added to the db - need to map this and change the original?
-  updatePart = (id) => {
-    Axios.put(`/api/parts/${id}`).then(res => this.setState())
-  }
 
   render() {
     return (

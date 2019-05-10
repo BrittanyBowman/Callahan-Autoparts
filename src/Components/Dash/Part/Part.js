@@ -27,11 +27,9 @@ function Part(props) {
         </div>
         <center>
           <button onClick={() => props.deletePart(id)}>Delete</button>
-        <button onClick={()=> props.updatePart(id)}>Update</button>
         </center>
       </div>
     )
 }
-//Need to build Update method
-//Delete button is now working
+
 export default Part;

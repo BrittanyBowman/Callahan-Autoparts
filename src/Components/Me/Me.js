@@ -1,6 +1,6 @@
 import React from 'react'
 import './Me.css'
-import { withRouter, Link } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import { connect } from 'react-redux'
 import { logout } from '../../reducer'
 
@@ -16,4 +16,5 @@ function Me(props) {
   function mapStateToProps(state){
     return {username: state.username};
   }
+
   export default withRouter(connect(mapStateToProps, { logout })(Me));

@@ -89,8 +89,21 @@ passport.use('register', new LocalStrategy({
 passport.serializeUser(function(user, done) {
     done(null, user.id)
 });
-passport.deserializeUser(function(id, done) {
-    done(null, id);
+passport.deserializeUser((id, done) => {
+    const db = app.get('db');
+
+    db.users.find(id)
+        .then(user => {
+            if (!user) return done(null, undefined);
+
+            delete user.password;
+
+            return done(null, user);
+        })
+        .catch(err => {
+            console.warn(err);
+            done('System failure');
+        });
 });
 
 //setup endpoints
@@ -111,7 +124,11 @@ app.post('/login', passport.authenticate('login'), (req, res) => {
 app.post('/register', passport.authenticate('register'), (req, res) => {
     return res.send({message: 'Logged In!', user: req.user})
 });
-
+//logout endpoint,
+app.get('/logout', (req, res) => {
+    req.logout();
+    res.sendStatus(200);
+});
 
 //listening on assigned port
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
