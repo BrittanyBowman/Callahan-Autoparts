@@ -32,7 +32,7 @@ module.exports = {
         res.status(500).send(error);
       });
     },
-    //Update parts list
+    //Update parts list(not setup)
   update: (req, res) => {
     let { name, number, price, img, descrip } = req.body;
     const { id } = req.params;

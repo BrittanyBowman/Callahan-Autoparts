@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
-// import axios from 'axios';
+
 
 class Search extends Component {
   constructor(){
@@ -13,10 +13,6 @@ class Search extends Component {
   handleChange = (property, value) => {
     this.setState({ [property]: value });
   };
-//make a function that pulls in the array? No. Maps it? No...Maybe?
-  // searchParts(){
-  //   axios.get(`https://api.github.com/users/${text}`).then(res => {this.results = res.data.results})
-  // }
   searchParts = () => {
     Axios.get('/api/parts').then(res => this.setState({results: res.data}))
   }

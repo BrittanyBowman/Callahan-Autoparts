@@ -15,8 +15,12 @@ function Part(props) {
           <div>
             <img src={img} alt={name} height="180px" width="200px" />
             </div>
-        <h6><p>Item: {name}<p> Item No. {number} </p><p>Price: ${price}.00</p>
-        Description: {descrip}</p></h6>
+        <h6>
+          <br/>Item: {name}
+          <br/> Item No. {number} 
+          <br/>Price: ${price}.00
+          <br/>Description: {descrip}
+        </h6>
         </center>
         </span>
         </div>

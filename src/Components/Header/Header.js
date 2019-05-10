@@ -5,11 +5,10 @@ import { logout } from '../../reducer'
 import "./Header.css";
 
 function Header(props) {
-  console.log(props);
   if (props.location.pathname !== "/") {
     return <div>
       <div className="Header">
-        <h3>Callahan AutoParts: User {props.username}</h3>
+        <h3>Callahan AutoParts: Welcome {props.username}</h3>
         <div className="header_link_box">
           <Link to="/dashboard">Dasboard</Link>
           <Link to="/wiz/1">Add</Link>
