@@ -26,7 +26,7 @@ function Part(props) {
         </div>
         </div>
         <center>
-          <button onClick={() => props.deletePart(id)}>Delete</button>
+          <button className="myButton" onClick={() => props.deletePart(id)}>Delete</button>
         </center>
       </div>
     )

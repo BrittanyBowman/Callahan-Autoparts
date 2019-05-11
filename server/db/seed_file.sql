@@ -13,8 +13,10 @@ password TEXT)
 
 -- must use foreign key and a join
 
-CREATE TABLE orders (
-    id serial PRIMARY KEY,
-    user_id INT REFERENCES users(id),
-    part_id INT REFERENCES parts(id)
+CREATE TABLE Orders (
+    id int NOT NULL,
+    OrderNumber int NOT NULL,
+    userID int,
+    PRIMARY KEY (id),
+    FOREIGN KEY (userID) REFERENCES users(id)
 )

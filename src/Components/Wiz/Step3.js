@@ -40,7 +40,7 @@ class Step3 extends Component {
           <span>
             <center>
               <input
-                style={{ width: "33vw", height: "23vh"}}
+                style={{ width: "26vw", height: "23vh"}}
                 value={this.state.descrip}
                 onChange={event =>
                   this.handleChange(event.target.value)
@@ -48,10 +48,10 @@ class Step3 extends Component {
             </center>
           </span>
           <center>
-            <button onClick={() => {
+            <button className="myButton" onClick={() => {
               this.props.updateDescrip(this.state)
               this.props.history.push('/wiz/2')}}>Previous</button>
-            <button onClick={this.complete}>Complete</button>
+            <button className="myButton" onClick={this.complete}>Complete</button>
           </center>
       </div>
     );

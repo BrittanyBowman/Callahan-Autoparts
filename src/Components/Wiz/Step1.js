@@ -58,10 +58,10 @@ class Step1 extends Component {
           </span>
         
         <center>
-          <button onClick={()=> {
+          <button className="myButton" onClick={()=> {
             this.props.history.push('/dashboard')}}>Cancel
             </button>
-          <button onClick={() => {
+          <button className="myButton" onClick={() => {
             this.props.updateNameNum(this.state);
             this.props.history.push("/wiz/2")}}>
             Next

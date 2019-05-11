@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Part from './Part/Part'
 import Axios from 'axios'
 import Header from '../Header/Header'
+import './Dash.css'
 
 //setup initial state
 class Dash extends Component {
@@ -33,7 +34,7 @@ class Dash extends Component {
       <div><br />
           <h3><center>Parts List</center></h3>
           <Header />
-          <center><button onClick={()=> this.props.history.push('/wiz/1')}>Add Parts</button></center>
+          <center><button className="myButton" onClick={()=> this.props.history.push('/wiz/1')}>Add Parts</button></center>
           {this.state.parts.map(element => {
             return <Part part={element} deletePart={this.deletePart} key={element.id} />
           })}

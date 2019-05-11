@@ -37,7 +37,7 @@ class Search extends Component {
         </span>
         </div>
         <center>
-        <button onClick={()=> this.searchParts()}>SEARCH</button>
+        <button className="myButton" onClick={()=> this.searchParts()}>SEARCH</button>
         </center>
       </div>
     )

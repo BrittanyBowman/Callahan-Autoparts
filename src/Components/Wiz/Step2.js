@@ -17,7 +17,7 @@ export class Step2 extends Component {
 
   handleChange = (value) => {
     this.setState({ img: value });
-  };
+  }
   render() {
     return (
       <div>
@@ -26,21 +26,23 @@ export class Step2 extends Component {
           <span>
             <center>
               <input
-                style={{ width: "25vw" }}
+                style={{ margin: "12px", width: "26vw", height: '5vw'}}
                 value={this.state.img}
                 onChange={event => this.handleChange(event.target.value)}
               />
+              <input
+                style={{ margin: "12px", width: "26vw", height: "23vh"}}
+                value="SETUP IMAGE PREVIEW HERE"
+                />
             </center>
-          </span>
-        
-        
+          </span> 
           <center>
-          <button onClick={() => {
+          <button className="myButton" onClick={() => {
             this.props.updateImg(this.state.img);
             this.props.history.push("/wiz/1")}}>
               Previous
             </button>
-            <button onClick={() => {
+            <button className="myButton" onClick={() => {
               this.props.updateImg(this.state.img);
               this.props.history.push("/wiz/3")}}>
               Next

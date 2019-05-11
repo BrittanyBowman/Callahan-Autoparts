@@ -7,8 +7,12 @@ import { logout } from '../../reducer'
 function Me(props) {
     return (
       <div><br /><br /><br /><div className="displaybox">
-        <span><center><h3>Welcome {props.username}<br />Show Join List Here</h3></center></span>
+        <span><center><h3>Welcome {props.username}<br /></h3>
+        </center>
+        </span>
         </div>
+        <center><button className="myButton" onClick={()=> this.props.updateUsername}>Update Username</button></center>
+        <br></br><center><button className="myButton" onClick={()=> this.props.viewOrders}>View Orders</button></center>
       </div>
     )
   }
