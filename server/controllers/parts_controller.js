@@ -47,4 +47,15 @@ module.exports = {
         res.status(500).send(err);
       });
   },
+  //updates username
+  update: (req, res) => {
+    let { username } = req.params;
+
+    req.app.get('db').update([username]).then(() => {
+        res.status(200).send();
+    }).catch(err => {
+        res.status(500).send(err);
+        console.log(err);
+    });
+},
 }

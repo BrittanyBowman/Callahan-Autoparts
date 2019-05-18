@@ -115,6 +115,8 @@ app.delete(`/api/parts/:id`, partsController.delete);
 app.post('/api/parts', partsController.create);
 //get / search parts by name
 app.get(`/api/parts/:name`, partsController.search);
+// updates username
+app.patch('/api/user/:id', partsController.update);
 
 //login endpoint, calls authenticate on passport. 
 app.post('/login', passport.authenticate('login'), (req, res) => {

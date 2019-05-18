@@ -3,8 +3,6 @@ import './Me.css'
 import { withRouter } from "react-router-dom";
 import { connect } from 'react-redux'
 import { logout } from '../../reducer'
-import axios from 'axios'
-
 
 class Me extends React.Component {
   constructor(props){

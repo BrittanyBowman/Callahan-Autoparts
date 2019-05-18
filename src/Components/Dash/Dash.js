@@ -29,6 +29,10 @@ class Dash extends Component {
     Axios.delete(`/api/parts/${id}`).then(res => this.getParts());
   }
 
+  updateUsername = (id) => {
+    Axios.patch(`api/users/${id}`).then(res => this.props.history.push('/'))
+  }
+
   render() {
     return (
       <div><br />
