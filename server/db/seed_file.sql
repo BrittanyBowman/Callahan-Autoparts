@@ -12,7 +12,7 @@ username TEXT,
 password TEXT)
 
 -- must use foreign key and a join
-
+-- invoices, not orders
 CREATE TABLE Orders (
     id int NOT NULL,
     OrderNumber int NOT NULL,
