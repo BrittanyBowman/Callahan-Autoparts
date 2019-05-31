@@ -6,18 +6,19 @@ import "./Header.css";
 
 function Header(props) {
   if (props.location.pathname !== "/") {
-    return <div>
+    return (
+      <div className="linkbox">
       <div className="Header">
-        <h3>Callahan AutoParts: Welcome {props.username}</h3>
-        <div className="header_link_box">
-          <Link to="/dashboard">Dasboard</Link>
-          <Link to="/wiz/1">Add</Link>
-          <Link to="/search">Search</Link>
-          <Link to="/" onClick={() => {props.logout(); props.history.push('/')}}>Logout</Link>
-          <Link to="/me">Home</Link>
+      <ul>
+          <li><Link to="/dashboard">MAIN</Link></li>
+          <li><Link to="/wiz/1">ADD PARTS</Link></li>
+          <li><Link to="/search">SEARCH</Link></li>
+          <li><Link to="/" onClick={() => {props.logout(); props.history.push('/')}}>LOGOUT</Link></li>
+          <li><Link to="/me">HOME</Link></li>
+        </ul>
         </div>
-    </div>
-    </div>
+      </div>
+    )
   } else {
     return null;
   }

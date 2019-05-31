@@ -26,12 +26,13 @@ export class Step2 extends Component {
           <span>
             <center>
               <input
-                style={{ margin: "12px", width: "26vw", height: '5vw'}}
+                placeholder="URL..."
+                style={{ width: "250px", height: '30px'}}
                 value={this.state.img}
                 onChange={event => this.handleChange(event.target.value)}
               />
               <input
-                style={{ margin: "12px", width: "26vw", height: "23vh"}}
+                style={{ width: "250px", height: "190px"}}
                 value="SETUP IMAGE PREVIEW HERE"
                 />
             </center>

@@ -19,7 +19,7 @@ function Wiz(props) {
               props.history.push("/");
             }}
           >
-            Cancel
+            CANCEL
           </button>
         </center>
       </div>

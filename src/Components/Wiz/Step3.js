@@ -40,8 +40,9 @@ class Step3 extends Component {
           <span>
             <center>
               <input
-                style={{ width: "26vw", height: "23vh"}}
+                style={{ width: "200px", height: "150px"}}
                 value={this.state.descrip}
+                placeholder="Description..."
                 onChange={event =>
                   this.handleChange(event.target.value)
                 }/>

@@ -35,13 +35,14 @@ class Dash extends Component {
 
   render() {
     return (
-      <div><br />
-          <h3><center>Parts List</center></h3>
+      <div>
+          <div className="partstop"></div>
           <Header />
-          <center><button className="myButton" onClick={()=> this.props.history.push('/wiz/1')}>Add Parts</button></center>
+          <div className="parts_container">
           {this.state.parts.map(element => {
             return <Part part={element} deletePart={this.deletePart} key={element.id} />
           })}
+          </div>
       </div>
     )
   }
