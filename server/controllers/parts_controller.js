@@ -58,4 +58,17 @@ module.exports = {
         console.log(err);
     });
 },
+
+    //Update Product Function
+    updateProduct: (req, res) => {
+      let {id} = req.params;
+      let {desc} = req.query;
+
+      req.app.get('db').update_product([desc, id]).then(() => {
+          res.status(200).send('Updated');
+      }).catch(() => {
+          res.status(500).send('Failed');
+      });
+  },
+
 }

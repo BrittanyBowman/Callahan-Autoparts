@@ -1,12 +1,13 @@
 //require packages
 const bcrypt = require('bcrypt');
 const express = require('express');
-require("dotenv").config();
+require("dotenv").config({path: __dirname + '/.env'});
 const massive = require('massive');
 const bodyParser = require('body-parser');
 const session = require('express-session');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
+const path = require('path');
 
 
 //db modules
@@ -24,6 +25,15 @@ massive(CONNECTION_STRING, {scripts: __dirname + '/db'}).then(dbInstance => {
 //setup express server
 //configure app to use sessions and passport
 const app = express();
+
+//serves up our build folder
+app.use(express.static(__dirname + '/../build'))
+
+//sends index.html file from the build folder
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../build/index.html'));
+});
+
 app.use(bodyParser.json());
 app.use(express.json());
 app.use( session({
@@ -117,7 +127,7 @@ app.post('/api/parts', partsController.create);
 app.get(`/api/parts/:name`, partsController.search);
 // updates username
 app.patch('/api/user/:id', partsController.update);
-
+//app.put('/api/faves/:id', controller.update)
 //login endpoint, calls authenticate on passport. 
 app.post('/login', passport.authenticate('login'), (req, res) => {
     return res.send({message: 'Authenticated!', user: req.user});
