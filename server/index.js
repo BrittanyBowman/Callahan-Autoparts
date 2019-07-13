@@ -26,14 +26,6 @@ massive(CONNECTION_STRING, {scripts: __dirname + '/db'}).then(dbInstance => {
 //configure app to use sessions and passport
 const app = express();
 
-//serves up our build folder
-app.use(express.static(__dirname + '/../build'))
-
-//sends index.html file from the build folder
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../build/index.html'));
-});
-
 app.use(bodyParser.json());
 app.use(express.json());
 app.use( session({
@@ -140,6 +132,14 @@ app.post('/register', passport.authenticate('register'), (req, res) => {
 app.get('/logout', (req, res) => {
     req.logout();
     res.sendStatus(200);
+});
+
+//serves up our build folder
+app.use(express.static(__dirname + '/../build'))
+
+//sends index.html file from the build folder
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../build/index.html'));
 });
 
 //listening on assigned port

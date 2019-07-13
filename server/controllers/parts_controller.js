@@ -35,7 +35,6 @@ module.exports = {
     //search
   search: (req, res) => {
     let { name } = req.params;
-    console.log("search", req.params)
     req.app
       .get('db')
       .get_part([`%${name}%`])
@@ -50,7 +49,6 @@ module.exports = {
   //updates username
   update: (req, res) => {
     let { username } = req.params;
-
     req.app.get('db').update([username]).then(() => {
         res.status(200).send();
     }).catch(err => {
@@ -59,16 +57,14 @@ module.exports = {
     });
 },
 
-    //Update Product Function
+    // Update Product Function
     updateProduct: (req, res) => {
       let {id} = req.params;
       let {desc} = req.query;
-
       req.app.get('db').update_product([desc, id]).then(() => {
           res.status(200).send('Updated');
       }).catch(() => {
           res.status(500).send('Failed');
       });
   },
-
 }

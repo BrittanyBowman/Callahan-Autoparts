@@ -12,7 +12,7 @@ class Dash extends Component {
     this.state = {
       parts: []
     }
-    // console.log(props); parts list.
+    console.log(props);
   }
 //invoke on load
   componentDidMount() {
@@ -20,7 +20,8 @@ class Dash extends Component {
   }
 //gets all the parts from the db
   getParts = () => {
-    Axios.get('/api/parts').then(res => this.setState({parts: res.data}))
+    Axios.get('/api/parts').then(res => {
+      this.setState({parts: res.data})})
   }
 //deletes a part from the db by id
 //passed through props to Part.js
