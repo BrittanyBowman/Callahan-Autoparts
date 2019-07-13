@@ -1,13 +1,13 @@
 //require packages
 const bcrypt = require('bcrypt');
 const express = require('express');
-require("dotenv").config({path: __dirname + '/.env'});
+require("dotenv").config({path: __dirname + '/.env'}); //tells it where to look for files
 const massive = require('massive');
 const bodyParser = require('body-parser');
 const session = require('express-session');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
-const path = require('path');
+const path = require('path'); //built into node
 
 
 //db modules
