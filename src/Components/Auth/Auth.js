@@ -44,8 +44,8 @@ class Auth extends Component {
         <h3>PASSWORD:</h3>
         <input type="password" value={this.state.password} placeholder="password..." onChange={event => this.handleChange('password', event.target.value)}/>
         <br /><br />
-        <p><button className="myButton" onClick={this.login}>LOGIN</button><h3>OR</h3>
-        <button className="myButton" onClick={this.register}>REGISTER</button></p>
+        <button className="myButton" onClick={this.login}>LOGIN</button><h5>Don't have an account? <br />Input your credentials, then click</h5>
+        <button className="myButton" onClick={this.register}>REGISTER</button>
         </center>
         </div>
       </div>

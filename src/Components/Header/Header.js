@@ -8,6 +8,7 @@ function Header(props) {
   if (props.location.pathname !== "/") {
     return (
       <div className="linkbox">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
       <div className="Header">
       <ul>
           <li><Link to="/dashboard">MAIN</Link></li>

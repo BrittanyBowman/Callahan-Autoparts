@@ -23,40 +23,29 @@ class Search extends Component {
     let { part, results } = this.state;
 
     return (
-      <div>
-        <div className="search">
-          <center>
-            <h3>SEARCH CATALOG</h3>
-          </center>
-          <span>
-            <input
-              value={part}
-              style={{ width: "250px", height: "30px" }}
-              placeholder="Search by item name..."
-              onChange={event => this.handleChange("part", event.target.value)}
-            />
-            <div>
-              <center>
-                {results.map(part => (
-                  <h5>
-                    ITEM: {part.name}
-                    <br />
-                    ITEM No. {part.number}
-                    <br />
-                    PRICE: ${part.price}.00
-                    <br />
-                  </h5>
-                ))}
-              </center>
-            </div>
-            <p />
-            <center>
-              <button className="myButton" onClick={() => this.searchParts()}>
-                SEARCH
-              </button>
-            </center>
-          </span>
+      <div  className="card2">
+        <input
+          style={{width: "300px", height: "65px"}}
+          value={part}
+          placeholder="Search by item name..."
+          onChange={event => this.handleChange("part", event.target.value)}
+        />
+        <div>
+          {results.map(part => (
+            <h5>
+              ITEM: {part.name}
+              <br />
+              ITEM No. {part.number}
+              <br />
+              PRICE: ${part.price}.00
+              <br />
+              IMAGE: {"Currently unavailable"}
+            </h5>
+          ))}
         </div>
+        <button className="myButton" onClick={() => this.searchParts()}>
+          SEARCH
+        </button>
       </div>
     );
   }

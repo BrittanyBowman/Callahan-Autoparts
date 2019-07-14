@@ -24,10 +24,6 @@ class Step1 extends Component {
   render() {
     return (
       <div>
-        <center>
-          <h3 className="wiz1">ADD PARTS</h3>
-        </center>
-        <span>
           <center>
             <h3 className="step1">ITEM DETAILS</h3>
             <br />
@@ -71,7 +67,6 @@ class Step1 extends Component {
               NEXT
             </button>
           </center>
-        </span>
       </div>
     );
   }

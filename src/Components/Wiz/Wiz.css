@@ -3,6 +3,59 @@
     padding: 60px;
     display: inline-flex;
   }
-  /* .step1 {
+  .step1 {
+    margin-top: 100px;
+  }
 
-  } */
+  .step3 {
+    margin-top: 100px;
+    padding-bottom: 90px;
+    padding-left: 10px;
+  }
+  .form_img_preview {
+    display: block;
+    width: 320px;
+    height: 200px;
+    margin: 7px auto;
+    background-position: center;
+    background-size: cover;
+  }
+
+  @media (min-width: 500px) {
+    .Form {
+      width: 450px;
+    }
+  }
+  
+  @media (min-width: 830px) {
+    .Form {
+      position: fixed;
+      left: 45.5vw;
+      top: 150px;
+    }
+  }
+  
+  @media (min-width: 1000px) {
+    .Form {
+      left: 53vw;
+    }
+  }
+  
+  @media (min-width: 1200px) {
+    .Form {
+      left: 57vw;
+    }
+  }
+  
+  @media (min-width: 1400px) {
+    @media (min-height: 950px) {
+      .Form {
+        width: 550px;
+        height: 620px;
+      }
+      .form_img_preview {
+        width: 420px;
+        height: 300px;
+      }
+    }
+  }

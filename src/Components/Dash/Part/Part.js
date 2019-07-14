@@ -5,22 +5,19 @@ import './Part.css'
 function Part(props) {
   let {id, name, number, price, img, descrip} = props.part;
     return (
-          <span>
+          <div className="card">
           <center>
           <div>
             <img src={img} alt={name} height="150px" width="200px" />
+            <div><button className="myButton2" onClick={() => props.deletePart(id)}>Delete</button>
+          <button className="myButton2" onClick={() => props.history.push(`/edit/${id}`)}>Edit</button></div>
             </div>
-        <h6>
-          <br/>Item: {name}
-          <br/> Item No. {number} 
-          <br/>Price: ${price}.00
-          <br/>Description: {descrip}
-        </h6>
+          <div>Item: {name}</div>
+          <div>Item No. {number}</div> 
+          <div>Price: ${price}.00</div>
+          <div>Description: {descrip}</div>
         </center>
-        <center>
-          <button className="myButton" onClick={() => props.deletePart(id)}>DELETE</button>
-        </center>
-        </span>
+        </div>
     )
 }
 

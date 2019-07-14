@@ -15,13 +15,14 @@ class Me extends React.Component {
   }
     render(){
       return (
-        <div><br /><br /><br /><div className="displaybox">
-          <span><center><h3>Welcome {this.props.username}<br /></h3>
+        <div>
+          <br /><br /><br /><div className="displaybox">
+          <span><center><h3>Welcome {this.props.username}</h3>
           </center>
           </span>
           </div>
-          <center><button className="myButton" onClick={()=> this.props.updateUsername}>Update Username</button></center>
-          <br></br><center><button className="myButton" onClick={()=> this.props.viewOrders}>View Orders</button></center>
+          {/* <center><button className="myButton" onClick={()=> this.props.updateUsername}>Update Username</button></center> */}
+          <center><button className="myButton" onClick={()=> this.props.viewOrders}>View Orders</button></center>
         </div>
       )
     }

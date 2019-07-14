@@ -1,0 +1,27 @@
+.myButton2 {
+    background: #0688fa;
+    color: #ffffff;
+    font-family: monospace;
+    font-size: 15px;
+    text-shadow: 0px 1px 0px #263666;
+    margin-top: -5px;
+  }
+  .myButton2:hover {
+    letter-spacing: .5px;
+    background: #0688fa;
+  }
+  .myButton2:active {
+    position: relative;
+    top: 1px;
+  }
+  
+  .card {
+    display: inline-block;
+    padding: 5px;
+    border: 1px solid #0688fa;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
+    max-width: 200px;
+  }

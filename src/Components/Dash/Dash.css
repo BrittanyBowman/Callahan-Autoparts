@@ -1,3 +1,7 @@
+h3 {
+  color: #0688fa;
+}
+
 .myButton {
   -moz-box-shadow: inset 0px -3px 7px 0px #29bbff;
   -webkit-box-shadow: inset 0px -3px 7px 0px #29bbff;
@@ -10,14 +14,33 @@
   font-size: 20px;
   text-decoration: none;
   text-shadow: 0px 1px 0px #263666;
+  margin-top: 20px;
 }
 .myButton:hover {
-  letter-spacing: 8px;
+  letter-spacing: 2px;
   background: #0688fa;
 }
 .myButton:active {
   position: relative;
   top: 1px;
+}
+
+input {
+  width: 200px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: white;
+  background-position: 10px 10px; 
+  background-repeat: no-repeat;
+  padding: 12px 20px 12px 40px;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+}
+
+input:focus {
+  width: 30%;
 }
 .logo {
   font-family: "Helvetica", "sans serif";
@@ -93,8 +116,5 @@ span {
     height: 25vh;
     padding: 80px;
     margin: 10px auto;
-    border: solid;
-    border-radius: 50px;
-    background-color: #0688fa; 
     display: block;
   } 
