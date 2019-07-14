@@ -17,7 +17,7 @@ class Me extends React.Component {
       return (
         <div>
           <br /><br /><br /><div className="displaybox">
-          <span><center><h3>Welcome {this.props.username}</h3>
+          <span><center><h3>Welcome, {this.props.username.toUpperCase()}! I have not completed the "View Orders" button yet, sorry about that.</h3>
           </center>
           </span>
           </div>
