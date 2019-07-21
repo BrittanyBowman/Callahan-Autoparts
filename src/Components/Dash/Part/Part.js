@@ -10,7 +10,7 @@ function Part(props) {
           <div>
             <img src={img} alt={name} height="150px" width="200px" />
             <div><button className="myButton2" onClick={() => props.deletePart(id)}>Delete</button>
-          <button className="myButton2" onClick={() => props.history.push(`/edit/${id}`)}>Edit</button></div>
+          <button className="myButton2" onClick={() => alert('Sorry, this button is not setup yet!')}>Edit</button></div>
             </div>
           <div>Item: {name}</div>
           <div>Item No. {number}</div> 
@@ -22,3 +22,5 @@ function Part(props) {
 }
 
 export default Part;
+
+//props.history.push(`/edit/${id}`)}
